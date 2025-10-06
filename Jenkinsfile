@@ -1,16 +1,17 @@
+
 pipeline {
     agent any
 
     environment {
-        AWS_DEFAULT_REGION = "us-east-1"
+        AWS_DEFAULT_REGION = "me-central-1"
         TF_DIR = "terraform"   // Directory containing main.tf
-        SSH_KEY = "ec2-ssh-key" // Jenkins credential ID for SSH private key
+        SSH_KEY = "aws-ec2-key" // Jenkins credential ID for SSH private key
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-username/your-repo.git'
+                git branch: 'main', url: 'https://github.com/farhan2784/Jenkins-terraform-ec2-web.git'
             }
         }
 
